@@ -35,13 +35,13 @@ Dataset columns from source:
 - end_lng - Longitude the bike trips end
 - member_casual- Indicates whether user was a "registered" member (Annual Member, 30-Day Member or Day Key Member) or a "casual" rider (Single Trip, 24-Hour Pass, 3-Day Pass or 5-Day Pass)
 
-## Technologies
+## Technologies used
 
 - Docker:- Containerization of applications -- build, share, run, and verify applications anywhere — without tedious environment configuration or management.
 - Google Cloud Storage GCS - Data Lake for storage
 - Google Cloud BigQuery - Data warehouse for analytical purposes
 - Kestra - Data and workflow orchestration
-- Dbt- For analytics engineering via data transformation
+- dbt- For analytics engineering via data transformation
 - Google Looker studio - Data Visualization
 
 
@@ -83,7 +83,8 @@ curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/09_g
 - Open the Kestra UI on https://localhost:8080
   
 Run the following inside of Kestra UI
-- Execute: 04_gcp_kv.yaml and 05_gcp_setup.yaml flows to setup your GCS and BigQuery services, after insert the service in the flow
+- Execute: 04_gcp_kv.yaml and 05_gcp_setup.yaml flows to setup your GCS and BigQuery services, after inserting the service account token in the 04_gcp_kv.yaml flow.
+  
 - Execute: 09_gcp_capstone1 or 09_gcp_scheduled_capstone1 to ingest data from the API into GCS (datalake) BigQuery (data warehouse)
 
 ## Display of Kestra UI (http://localhost:8080)
