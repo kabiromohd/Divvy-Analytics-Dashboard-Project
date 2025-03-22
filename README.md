@@ -21,19 +21,19 @@ The data is provided by Divvy Bikeshare and contains information about bike ride
 
 Dataset columns from source:
 
-ride_id - Unique key for each ride
-rideable_type - Bike type used
-started_at – Includes start date and time
-ended_at – Includes end date and time
-start_station_name – Includes starting station name
-start_station_id - Unique id of start station
-end_station_name – Includes ending station name
-end_station_id - Unique id of ending station
-start_lat - Start Latitude of bike trip
-start_lng - Start Longitude of bike trip
-end_lat - Latitude the bike trips end
-end_lng - Longitude the bike trips end
-member_casual- Indicates whether user was a "registered" member (Annual Member, 30-Day Member or Day Key Member) or a "casual" rider (Single Trip, 24-Hour Pass, 3-Day Pass or 5-Day Pass)
+- ride_id - Unique key for each ride
+- rideable_type - Bike type used
+- started_at – Includes start date and time
+- ended_at – Includes end date and time
+- start_station_name – Includes starting station name
+- start_station_id - Unique id of start station
+- end_station_name – Includes ending station name
+- end_station_id - Unique id of ending station
+- start_lat - Start Latitude of bike trip
+- start_lng - Start Longitude of bike trip
+- end_lat - Latitude the bike trips end
+- end_lng - Longitude the bike trips end
+- member_casual- Indicates whether user was a "registered" member (Annual Member, 30-Day Member or Day Key Member) or a "casual" rider (Single Trip, 24-Hour Pass, 3-Day Pass or 5-Day Pass)
 
 ## Technologies
 
@@ -45,7 +45,8 @@ member_casual- Indicates whether user was a "registered" member (Annual Member, 
 - Google Looker studio - Data Visualization
 
 
-## Steps to reproduce:
+## Steps to reproduce project:
+
 Important: This project is intended to be easily reproducible. This section will give a thorough breakdown of how to reproduce this project
 
 ## 1) Pre-requisites
@@ -62,14 +63,15 @@ Important: This project is intended to be easily reproducible. This section will
 
 ## 3) Setup Kestra
 
-- Setup working Environment either a VM on GCP or on your local machine cloud. Open your terminal and clone the project repo
+- Setup working Environment either a VM on GCP or on your local machine cloud. Open your terminal and clone the project repo and launch Kestra UI
   
 ```
-git clone 
+  git clone https://github.com/kabiromohd/Divvy-Analytics-Dashboard-Project.git
 
-cd project
+  cd Divvy-Analytics-Dashboard-Project/Orchestration-kestra/
 
-pip install pipenv
+  docker-compose up
+
 ```
 
 - Get copies of the project and dependencies, you can clone the repo.
