@@ -74,23 +74,18 @@ Important: This project is intended to be easily reproducible. This section will
 
 ```
 
-- Get copies of the project and dependencies, you can clone the repo.
-- The files should be placed in the virtual environment folder after being cloned via below command.
+- Run the below codes to load the project YAML flows into the Kestra application.
 
 ```
-git clone https://github.com/kabiromohd/Ride-Duration-Prediction.git
+curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/04_gcp_kv.yaml
+curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/05_gcp_setup.yaml
+curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/09_gcp_capstone1
+curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/09_gcp_scheduled_capstone1
+
 ```
-
-## Explore and prepare the data
-- Explore data
-  - Checked the Data Structure and columns
-  - Checked the numbers of features and observations in the data
-  - Checked the inconsistency in column names and corrected.
-- prepare data
-  - Checked for missing values (filled with 0)
-  - Checked for outliers
-  - Checked for Duplicates
-
-
-[DATA](https://divvy-tripdata.s3.amazonaws.com/index.html)
+- Open the Kestra UI on localhost:8080
+  
+Run the following inside of Kestra UI
+- Execute: 04_gcp_kv.yaml and 05_gcp_setup.yaml flows to setup your GCS and BigQuery services, after insert the service in the flow
+- Execute 09_gcp_capstone1 or 09_gcp_scheduled_capstone1 to ingest the data into GCS and BigQuery
 
