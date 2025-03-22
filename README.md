@@ -50,10 +50,8 @@ Dataset columns from source:
 Important: This project is intended to be easily reproducible. This section will give a thorough breakdown of how to reproduce this project
 
 ## 1) Pre-requisites
-- Set up GCP account
 - Install terraform
 - Install Docker
-- setup Kestra
   
 ## 2) Google Cloud Platform (GCP)
 - Setup up GCP free account if you don't have an account. It expires after 90 days.
@@ -62,8 +60,7 @@ Important: This project is intended to be easily reproducible. This section will
 - Once account is created, create and download the key file. This will be used to authenticate google services. This will be needed for Kestra, dbt.
 
 ## 3) Setup Kestra
-
-- Setup working Environment either a VM on GCP or on your local machine cloud. Open your terminal and clone the project repo and launch Kestra UI
+- Setup working Environment either a VM on GCP or on your local machine cloud. Open your terminal, clone the project repo and then launch Kestra UI
   
 ```
   git clone https://github.com/kabiromohd/Divvy-Analytics-Dashboard-Project.git
@@ -74,7 +71,7 @@ Important: This project is intended to be easily reproducible. This section will
 
 ```
 
-- Run the below codes to load the project YAML flows into the Kestra application.
+- Run the below codes to load the already prepared project YAML flows into the Kestra application.
 
 ```
 curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/04_gcp_kv.yaml
@@ -83,18 +80,19 @@ curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/09_g
 curl -X POST http://localhost:8080/api/v1/flows/import -F fileUpload=@flows/09_gcp_scheduled_capstone1
 
 ```
-- Open the Kestra UI on localhost:8080
+- Open the Kestra UI on https://localhost:8080
   
 Run the following inside of Kestra UI
 - Execute: 04_gcp_kv.yaml and 05_gcp_setup.yaml flows to setup your GCS and BigQuery services, after insert the service in the flow
-- Execute 09_gcp_capstone1 or 09_gcp_scheduled_capstone1 to ingest the data into GCS and BigQuery
+- Execute: 09_gcp_capstone1 or 09_gcp_scheduled_capstone1 to ingest data from the API into GCS (datalake) BigQuery (data warehouse)
 
 ## Display of Kestra UI (http://localhost:8080)
 
-![WhatsApp Image 2025-03-22 at 4 19 19 PM](https://github.com/user-attachments/assets/7765f52f-1925-408c-8c92-c28add6ee7e3)
+![Kestra UI](https://github.com/user-attachments/assets/7765f52f-1925-408c-8c92-c28add6ee7e3)
 
 ## Display of GCS-BigQuery
 
-![WhatsApp Image 2025-03-22 at 4 20 29 PM](https://github.com/user-attachments/assets/aa9a7b78-0874-4082-83e0-128f82432788)
+![BigQuery](https://github.com/user-attachments/assets/aa9a7b78-0874-4082-83e0-128f82432788)
 
+## 3) Setup dbt for Analytics Engineering 
 
