@@ -89,3 +89,12 @@ Run the following inside of Kestra UI
 - Execute: 04_gcp_kv.yaml and 05_gcp_setup.yaml flows to setup your GCS and BigQuery services, after insert the service in the flow
 - Execute 09_gcp_capstone1 or 09_gcp_scheduled_capstone1 to ingest the data into GCS and BigQuery
 
+## Display of Kestra UI (http://localhost:8080)
+
+![WhatsApp Image 2025-03-22 at 4 19 19 PM](https://github.com/user-attachments/assets/7765f52f-1925-408c-8c92-c28add6ee7e3)
+
+## Display of GCS-BigQuery
+
+![WhatsApp Image 2025-03-22 at 4 20 29 PM](https://github.com/user-attachments/assets/aa9a7b78-0874-4082-83e0-128f82432788)
+
+
