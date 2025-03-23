@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: staging
+    database: "{{ env_var('DBT_DATABASE', 'my-zoomcamp-project-12978') }}"
+    schema: "{{ env_var('DBT_SCHEMA', 'capst') }}"
+    tables:
+      - name: divvy_tripdata_all
+
+
+models:
+  - name: stg_divvy_tripdata
+
+    description: >
+      These are Divvy Bikeshare information about bike rides in Washington DC.
+
+    columns:
+        - name: ride_id
+          description: Unique identifier for each ride
+        - name: rideable_type
+          description: Type or model of the bike used for the ride
+        - name: start_station_name
+          description: Name of the station where the ride started
+        - name: start_station_id
+          description: Identifier for the station where the ride started
+        - name: end_station_name
+          description: Name of the station where the ride ended
+        - name: end_station_id
+          description: Identifier for the station where the ride ended
+        - name: start_lat
+          description: Latitude of the starting location
+        - name: start_lng
+          description: Longitude of the starting location
+        - name: end_lat
+          description: Latitude of the ending location
+        - name: end_lng
+          description: Longitude of the ending location
+        - name: member_casual
+          description: Type of membership or subscription used for the bike ride
+        - name: started_at
+          description: Date and time when the ride started
+          tests:
+            - not_null
+        - name: ended_at
+          description: Date and time when the ride ended
+          tests:
+            - not_null
