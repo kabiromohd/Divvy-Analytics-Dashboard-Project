@@ -28,6 +28,8 @@ The data is provided by Divvy Bikeshare and contains information about bike ride
 - dbt- For analytics engineering via data transformation
 - Google Looker studio - Data Visualization
 
+Note: The technologies used in the project are all from the DE Zoomcamp course, so if in doubt refer to course materials and videos for clarification
+
 
 ## Steps to reproduce project:
 
@@ -84,7 +86,7 @@ Display of GCS-BigQuery
 
 ![BigQuery](https://github.com/user-attachments/assets/aa9a7b78-0874-4082-83e0-128f82432788)
 
-## 4) Setup dbt for Analytics Engineering 
+## 4) Setup dbt Cloud for Analytics Engineering 
 
 For this project a cloud option was selected for dbt setup. Please follow the following steps:
 
@@ -112,7 +114,9 @@ For this project a cloud option was selected for dbt setup. Please follow the fo
   
 - Create a production environment, create a job and trigger the job manually.
 
-- You can also setup a cron job to implement the job at certain intervals
+- You can also setup a cron job to implement the job at certain intervals as in below:
+
+![cron job](https://github.com/user-attachments/assets/0fdf7ee4-1ca7-4436-871a-cc95ea7d163e)
 
 You should get the below:
 
@@ -127,4 +131,5 @@ You should get the below:
 
 ## 5) Created Dashboard
 
-![dashboard](https://github.com/user-attachments/assets/cb4d68d5-d2fa-4b12-8cdd-270b8f080eb2)
+![Dashboard Display](https://github.com/user-attachments/assets/983a80f9-f791-44cf-bf36-85cb1f8a27e8)
+
