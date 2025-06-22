@@ -3,9 +3,9 @@ Data Engineering Zoomcamp Capstone Project
 
 ## Purpose of project
 
-The project is to build an end-to-end Batch Data Engineering pipeline for an Analytics Dashboard project. 
+The project is to build an end-to-end Batch Data Engineering pipeline for an Analytics Dashboard. 
 
-The goal of this project is to build an end-to-end data data pipeline.
+The goal of this project is to build an end-to-end data pipeline.
 
 ## Problem statement
 
@@ -17,15 +17,15 @@ The goal of this project is to build an end-to-end data data pipeline.
 - Building a dashboard to visualize the data
 
 ## The data
-The data is provided by Divvy Bikeshare and contains information about bike rides in Washington DC. Downloadable files are available on the following [data link](https://divvy-tripdata.s3.amazonaws.com/index.html) The data used for the project is from 2023 to date.
+The data is provided by Divvy Bikeshare and contains information about bike rides in Washington DC. Downloadable files are available on the following [data link](https://divvy-tripdata.s3.amazonaws.com/index.html) The data used for this project is from January 2023 to date.
 
 ## Technologies used
 
 - Docker:- Containerization of applications 
 - Google Cloud Storage GCS - Data Lake for storage
-- Google Cloud BigQuery - Data warehouse for analytical purposes
-- Kestra - Data and workflow orchestration
-- dbt- For analytics engineering via data transformation
+- Google Cloud BigQuery - Data warehouse
+- Kestra - Workflow orchestration
+- dbt- Analytics Engineering
 - Google Looker studio - Data Visualization
 
 Note: The technologies used in the project are all from the DE Zoomcamp course, so if in doubt refer to course materials and videos for clarification
@@ -39,13 +39,13 @@ Important: This project is intended to be easily reproducible. This section will
 - Install Docker
   
 ## 2) Google Cloud Platform (GCP)
-- Setup up GCP free account if you don't have an account. It expires after 90 days.
+- Setup up GCP free account if you don't have an account. Free USD$300expires after 90 days.
 - Create a new project and take note of the project ID.
 - Set up service account. Select Bigquery Admin, Compute Admin and storage Admin Roles for this project.
-- Once account is created, create and download the key file. This will be used to authenticate google services. This will be needed for Kestra, dbt setup.
+- Once account is created, create and download the key file. This will be used to authenticate google services. This will be needed for Kestra and dbt setup.
 
 ## 3) Setup Kestra
-- Setup working Environment either a VM on GCP or on your local machine cloud. Open your terminal, clone the project repo and then launch Kestra UI
+- Setup working Environment either a VM on GCP or on your local machine. Open your terminal, clone the project repo and then launch Kestra UI
   
 ```
   git clone https://github.com/kabiromohd/Divvy-Analytics-Dashboard-Project.git
@@ -70,13 +70,13 @@ Important: This project is intended to be easily reproducible. This section will
   
 Run the following inside of Kestra UI
 
-- Inserting the GCP Service Account credentials in 04_gcp_kv.yaml flow.
+- Insert: GCP Service Account credentials in 04_gcp_kv.yaml flow.
 
 - Execute: 04_gcp_kv.yaml and 05_gcp_setup.yaml flows to setup your GCS - Datalake and BigQuery - Data Warehouse
   
-- Execute: 09_gcp_capstone1, if you desire to ingest monthly data from the API into GCS (datalake) BigQuery (data warehouse) one by one.
+- Execute: 09_gcp_capstone1, if you desire to ingest monthly data from the API into GCS (Datalake) and BigQuery (Data Warehouse) one by one.
   
-- 09_gcp_scheduled_capstone1 to ingest data from the API into GCS (datalake) BigQuery (data warehouse) via a backfill. Note that a trigger has been setup in this flow to ingest data as new data becomes available on the API
+- 09_gcp_scheduled_capstone1 to ingest data from the API into GCS (Datalake) and BigQuery (Data Warehouse) via a backfill. Note that a trigger has been setup in the yml flow to ingest data as new data becomes available on the API
 
 Display of Kestra UI (http://localhost:8080)
 
@@ -88,9 +88,9 @@ Display of GCS-BigQuery
 
 ## 4) Setup dbt Cloud for Analytics Engineering 
 
-For this project a cloud option was selected for dbt setup. Please follow the following steps:
+For this project a dbt cloud option was selected for dbt setup. Please follow the following steps:
 
-- Setting up dbt for using BigQuery (cloud)
+- Setting up dbt and connect to your BigQuery
 
 - Open a free developer dbt cloud account following [this link](https://www.getdbt.com/signup)
   
@@ -102,17 +102,17 @@ For this project a cloud option was selected for dbt setup. Please follow the fo
 
 -  There are a number of schemas and SQL file that have been created in dbt for the purpose of the project, copy them into the appropriate folders
 
-- run dbt build you get the following DAG
+- run dbt build and you get the following DAG
 
 ![project DAG](https://github.com/user-attachments/assets/6c1db069-f233-414a-b544-0424d4a9dfdc)
 
-- After a succesful dbt build you should the below.
+- After a succesful dbt build run, you should have the below.
 
 ![dbt build output](https://github.com/user-attachments/assets/4beb04ca-72c3-4ec2-984d-034b04cc3ffb)
 
 - On the dbt dashboard go to deploy code on dbt cloud.
   
-- Create a production environment, create a job and trigger the job manually.
+- Create a production environment, create a job and trigger a job manually.
 
 - You can also setup a cron job to implement the job at certain intervals as in below:
 
@@ -125,7 +125,7 @@ You should get the below:
 ## 4) Setup Google Looker Studio for Visualization
 
 - Create Google Looker Studio via [this link](https://lookerstudio.google.com/) 
-- Select the bigquery connector and connect to the transformed data in BigQuery warehouse
+- Select the bigquery connector and connect to the transformed data in BigQuery
 - Start building dashboard using the available features in looker
 - The live dashboard created can be viewed and interacted with [here](https://lookerstudio.google.com/reporting/8ada8555-1ae0-44d5-ad13-ee739c61d1d8/page/H3ZEF)
 
